@@ -41,7 +41,7 @@ setTimeout(function () {
     {
       type: 'list',
       name: 'Type',
-      message: 'What type project do you need?\n',
+      message: 'What type of project do you need?\n',
       choices: [
         'React-Starter',
         'React-Starter + Redux',

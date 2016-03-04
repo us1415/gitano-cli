@@ -1,10 +1,11 @@
-## Gitano CLI
+## Gitano CLI **WIP**
 
 #### A CLI tool for setting up your React.js projects
 
 Gitano will guide the user through a series of steps to help with the project setup.
 
 ---
+![Gitano-CLI](./gitano.gif)
 
 **Install**  
 `npm install -g gitano-cli`
@@ -14,7 +15,7 @@ Gitano will guide the user through a series of steps to help with the project se
 
 Gitano-Cli will prompt:  
 
-1 - **What's your project name?**
+0 - **What's your project name?**
 * (wait for user's answer)
 
 1 - **What do you want to work on?**
