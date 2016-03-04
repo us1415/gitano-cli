@@ -6,13 +6,13 @@ var inquirer = require('inquirer');
 
 ////* GITANO *////
 
-shell.echo('Hola! Soy el Gitano.\nI\'ll help you setup your React project.');
+shell.echo('Hola, me llaman el Gitano!\nI\'ll help you setup your React project.\n');
 setTimeout(function () {
   shell.echo('\033[34mPreparing some magic powders... \033[0m');
-}, 1000)
+}, 1200)
 setTimeout(function () {
-  shell.echo('\033[34mSummoning the ancient binary spirits! \033[0m');
-}, 1000)
+  shell.echo('\033[34mSummoning the ancient binary spirits! \033[0m\n');
+}, 1800)
 
 
 setTimeout(function () {
@@ -28,14 +28,25 @@ setTimeout(function () {
       type: 'list',
       name: 'Strucure',
       message: 'What kind of structure you like?\n',
-      choices: [ 'src - dist', 'app - build', 'app - dist', 'src - build', 'module - lib', 'lib - dist' ],
+      choices: [
+        'src - dist',
+        'app - dist',
+        'src - build',
+        'app - build',
+        'module - lib',
+        'lib - dist',
+        'lib - build'
+      ]
     },
     {
       type: 'list',
       name: 'Type',
       message: 'What type project do you need?\n',
-      choices: [ 'React-Starter', 'React-Starter + Redux', 'React-Starter + Redux + Relay' ],
-      filter: function( val ) { return val.toLowerCase(); }
+      choices: [
+        'React-Starter',
+        'React-Starter + Redux',
+        'React-Starter + Redux + Relay'
+      ]
     },
     {
       type: 'list',
@@ -46,13 +57,18 @@ setTimeout(function () {
     {
       type: 'list',
       name: 'Testing',
-      message: 'Do you write tests?',
+      message: 'Do you write tests?\n',
       choices: [ 'Mocha + Chai', 'AVA', 'No, I live on the edge!' ]
     }
   ];
 
   inquirer.prompt( questions, function( answers ) {
-    console.log('\nYour Project setup:');
-    console.log( JSON.stringify(answers, null, '  ') );
+    setTimeout(function () {
+      shell.echo('\n\033[34mThe spirits are with you! \033[0m');
+    }, 700)
+    setTimeout(function () {
+      console.log('\nYour Project setup:');
+      console.log( JSON.stringify(answers, null, '  ') );
+    }, 2000)
   });
-}, 3000)
+}, 3100)
