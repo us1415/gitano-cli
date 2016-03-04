@@ -1,6 +1,6 @@
 ## Gitano CLI
 
-#### An opinionated CLI tool for setting up your React.js projects
+#### A CLI tool for setting up your React.js projects
 
 Gitano will guide the user through a series of steps to help with the project setup.
 
@@ -31,6 +31,7 @@ Gitano-Cli will prompt:
 3 - **What testing suite do you want to use?**
 * Mocha + Chai
 * AVA
+* None
 
 4 - **Extras?**
 * React-drops (drops react components from the cli)

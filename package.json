@@ -1,10 +1,10 @@
 {
   "name": "gitano-cli",
   "version": "0.0.1",
-  "description": "A CLI tool for automatic project setup",
+  "description": "A CLI tool for setting up your React.js projects",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "gitano": "bin/gitano.js"
   },
   "repository": {
     "type": "git",
