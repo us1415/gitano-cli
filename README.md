@@ -26,6 +26,7 @@ Gitano-Cli will prompt:
 * Bootstrap
 * Foundation
 * Bulma
+* None
 
 3 - **What testing suite do you want to use?**
 * Mocha + Chai
