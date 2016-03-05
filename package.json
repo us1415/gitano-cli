@@ -1,7 +1,7 @@
 {
   "name": "gitano-cli",
   "version": "0.0.1",
-  "description": "A CLI tool for setting up your React.js projects",
+  "description": "An opinionates CLI tool for setting up your React.js projects",
   "main": "index.js",
   "bin": {
     "gitano": "bin/gitano.js"

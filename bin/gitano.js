@@ -26,20 +26,6 @@ setTimeout(function () {
     },
     {
       type: 'list',
-      name: 'Structure',
-      message: 'What kind of structure do you like?\n',
-      choices: [
-        'src - dist',
-        'app - dist',
-        'src - build',
-        'app - build',
-        'module - lib',
-        'lib - dist',
-        'lib - build'
-      ]
-    },
-    {
-      type: 'list',
       name: 'Type',
       message: 'What type of project do you need?\n',
       choices: [
@@ -70,23 +56,17 @@ setTimeout(function () {
       // Create Project
       var project = answers.Name;
       shell.echo('Creating ' + project + '...');
-      shell.exec('mkdir ' + project);
-      shell.exec('cd ' + project + ' && npm init -y --loglevel=silent');
-      shell.echo('\033[32mProject created with package.json \033[0m\n');
-      // Create Structure
-      if (answers.Structure === 'src - dist') {
-          shell.echo('Creating Structure...\n');
-          shell.exec('cd ' + project + ' && mkdir src src/components');
-          shell.exec('cd ' + project + ' && mkdir dist');
-          shell.exec('find ' + project + ' -type d -print');
+      // Add project type
+      if (answers.Type === 'React-Starter') {
+          shell.exec('git clone git@github.com:juanmnl/react-starter.git ' + project);
+          // shell.exec('find ' + project + ' -type d -print');
           shell.echo('\033[32mStructure created \033[0m');
       }
       console.log('\nYour Project setup:');
       console.log( JSON.stringify(answers, null, '  ') );
     }, 2000)
     setTimeout(function () {
-      shell.echo('\n\033[32mReady! \033[0m');
-      shell.echo('\n\033[34mDon\'t forget to cd into your project and \'git init\' \033[0m');
+      shell.echo('\n\033[32mReady! cd into your project and build awesome stuff \033[0m');
       shell.echo('\033[34mSee you soon! \033[0m');
     }, 2700)
   });
