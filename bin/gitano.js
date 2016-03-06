@@ -6,7 +6,9 @@ var inquirer = require('inquirer');
 
 ////* GITANO *////
 
-shell.echo('\nHola, me llaman el Gitano!\nI\'ll help you setup your React project.\n');
+shell.echo('\nHola, me dicen El Gitano!\nI\'ll help you setup your React project.\n');
+// Build a function that checks
+// and downloads updates with this messages as loading state
 setTimeout(function () {
   shell.echo('\033[34mPreparing some magic powders... \033[0m');
 }, 1200)
@@ -55,14 +57,16 @@ setTimeout(function () {
     setTimeout(function () {
       // Create Project
       var project = answers.Name;
-      shell.echo('Creating ' + project + '...');
+      shell.echo('Summoning ' + project + ':');
       // Add project type
       if (answers.Type === 'React-Starter') {
           shell.exec('git clone git@github.com:juanmnl/react-starter.git ' + project);
-          // shell.exec('find ' + project + ' -type d -print');
+          shell.exec('cd ' + project + ' && rm -rf .git TODO preview.png README.md');
+          shell.echo('\n\033[34mAdding some fresh Git\033[0m');
+          shell.exec('cd ' + project + ' && git init && touch README.md');
           shell.echo('\033[32mStructure created \033[0m');
       }
-      console.log('\nYour Project setup:');
+      console.log('\n\033[34mYour Project setup:\033[0m');
       console.log( JSON.stringify(answers, null, '  ') );
     }, 2000)
     setTimeout(function () {
