@@ -9,7 +9,7 @@ var questions = [
   {
     type: 'list',
     name: 'Type',
-    message: 'What type of project do you need?\n',
+    message: 'What type of project do you need? (more options soon)\n',
     choices: [
       'React-Starter'
     ],
