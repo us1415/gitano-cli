@@ -7,15 +7,17 @@ var questions = require('./questions.js');
 
 ////* GITANO *////
 
-shell.echo('\nHola, me dicen El Gitano!\nI\'ll help you setup your React project.\n');
+// Why so many setTimeout(s)? -> Because "Perception" matters
+
+shell.echo('\nHello! Me llaman "El Gitano" –¡Olé!-\nI\'ll help you setup your React project.\n');
 // Build a function that checks
 // and downloads updates with this messages as loading state
 setTimeout( function () {
-  shell.echo('\033[34mPreparing some magic powders... \033[0m');
-}, 1200)
+  shell.echo('\033[34mMixing some magic powders... \033[0m');
+}, 1600);
 setTimeout( function () {
-  shell.echo('\033[34mSummoning the ancient binary spirits! \033[0m\n');
-}, 1800)
+  shell.echo('\033[34mSummoning the ancient binary spirits...\033[0m\n');
+}, 2400);
 
 
 setTimeout( function () {
@@ -23,34 +25,43 @@ setTimeout( function () {
 
     setTimeout( function () {
       shell.echo('\n\033[34mThe spirits are with you! \033[0m');
-    }, 700)
+      // add random generated "cheerful" message
+    }, 700);
 
     setTimeout( function () {
       // Create Project
       var project = answers.Name;
 
       shell.echo('Summoning ' + project + ':');
-      // Add project type
+      // Add project type & css
       if (answers.Type === 'react-starter' && answers.Css === 'bootstrap') {
-        shell.exec('git clone git@github.com:juanmnl/react-starter.git ' + project);
-        shell.exec('cd ' + project + ' && rm -rf .git TODO preview.png README.md');
-        shell.echo('\n\033[34mAdding some fresh Git\033[0m');
-        shell.exec('cd ' + project + ' && git init && touch README.md');
-        shell.echo('\033[32mStructure created \033[0m');
-      } else {
-        console.log('You chose something else :D and it\'s not available yet');
-        console.log('\n\033[34mI\'m not able to help you yet. Sorry :(\033[0m');
-        return;
+        reactBootstrap( project );
+      } else if (answers.Type === 'react-starter' && answers.Css === 'none') {
+        reactNoCss( project );
       }
-
-      console.log('\n\033[34mYour Project setup:\033[0m');
-      console.log( JSON.stringify(answers, null, '  ') );
-    }, 2000)
+    }, 2000);
 
     setTimeout( function () {
       shell.echo('\n\033[32mReady! cd into your project and build awesome stuff \033[0m');
       shell.echo('\033[34mSee you soon! \033[0m');
-    }, 2700)
+    }, 2700);
 
   });
-}, 3500)
+}, 3500);
+
+
+function reactBootstrap ( project ) {
+  shell.exec('git clone git@github.com:juanmnl/react-starter.git ' + project);
+  shell.exec('cd ' + project + ' && rm -rf .git TODO preview.png README.md');
+  shell.echo('\n\033[34mAdding some fresh Git\033[0m');
+  shell.exec('cd ' + project + ' && git init -q && touch README.md');
+  shell.echo('\033[32mStructure created \033[0m');
+}
+
+function reactNoCss ( project ) {
+  shell.exec('git clone -b no-css-framework git@github.com:juanmnl/react-starter.git ' + project);
+  shell.exec('cd ' + project + ' && rm -rf .git TODO preview.png README.md');
+  shell.echo('\n\033[34mAdding some fresh Git\033[0m');
+  shell.exec('cd ' + project + ' && git init -q && touch README.md');
+  shell.echo('\033[32mStructure created \033[0m');
+}
