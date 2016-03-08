@@ -4,7 +4,16 @@ var questions = [
     name: 'Name',
     message: 'What\'s your project name?\n',
     default: 'react-sketch',
-    filter: function( val ) { return val.toLowerCase(); }
+    filter: function( val ) { return val.toLowerCase(); },
+    validate: function( value ) {
+      var regexp = /^\S*$/;
+      var pass = value.match( regexp );
+      if ( pass ) {
+        return true;
+      } else {
+        return "Please enter a name without spaces";
+      }
+    }
   },
   {
     type: 'list',
