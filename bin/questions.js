@@ -3,7 +3,7 @@ var questions = [
     type: 'input',
     name: 'Name',
     message: 'What\'s your project name?\n',
-    default: 'react-sketch',
+    default: 'hola-mundo',
     filter: function( val ) { return val.toLowerCase(); },
     validate: function( value ) {
       var regexp = /^\S*$/;

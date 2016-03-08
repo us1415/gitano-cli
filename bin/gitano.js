@@ -16,10 +16,10 @@ echo('\nHello! Me llaman "El Gitano" –¡Olé!-\nI\'ll help you setup your Reac
 // Build a function that checks
 // and downloads updates with this messages as loading state
 setTimeout( function () {
-  echo('\033[34mMixing some magic powders... \033[0m');
+  echo('\033[34mLook deep into the crystal ball. \033[0m');
 }, 1600);
 setTimeout( function () {
-  echo('\033[34mSummoning the ancient binary spirits...\033[0m\n');
+  echo('\033[34mSummoning the ancient binary Spirits...\033[0m\n');
 }, 2400);
 
 
@@ -27,7 +27,7 @@ setTimeout( function () {
   inquirer.prompt( questions, function( answers ) {
 
     setTimeout( function () {
-      echo('\n\033[34mThe spirits are with you! \033[0m');
+      echo('\n\033[34mYou have chosen... Wisely. \033[0m');
       // add random generated "cheerful" message
     }, 700);
 
@@ -37,8 +37,8 @@ setTimeout( function () {
     }, 2000);
 
     setTimeout( function () {
-      finishProject();
-    }, 2700);
+      finishProject( answers );
+    }, 3000);
 
   });
 }, 3500);
@@ -60,7 +60,8 @@ function reactNoCss ( project ) {
 function createProject ( answers ) {
   var project = answers.Name;
 
-  echo('Summoning ' + project + ':');
+  echo('Invoking the soul of ' + project);
+  // Check if `project`folder doesn't exists or break w/ message
   // Add project type & css
   if (answers.Type === 'react-starter' && answers.Css === 'bootstrap') {
     reactBootstrap( project );
@@ -72,13 +73,18 @@ function createProject ( answers ) {
 // Remove unnecesary files from project
 function cleanProject ( project ) {
   exec('cd ' + project + ' && rm -rf .git TODO previews README.md');
-  echo('\n\033[34mAdding some fresh Git\033[0m');
+  echo('\n\033[34mRemoving the Git of past lives...\033[0m');
   exec('cd ' + project + ' && git init -q && touch README.md');
-  echo('\033[34mMixing everything...\033[0m');
+  echo('\033[34mThe Spirits have spoken!\033[0m');
 }
 
-function finishProject () {
-  echo('\033[32mYour potion is ready!\033[0m');
-  echo('\n\033[34mCome back soon! And bring me some fresh blood :D\033[0m');
-  echo('\ncd into your project and build awesome stuff');
+function finishProject ( answers ) {
+  var project = answers.Name;
+  echo('\033[32mYour wishes will be granted.\033[0m');
+  setTimeout( function () {
+    echo('\n\033[34mCome back soon! And bring me some fresh blood :D\033[0m');
+  }, 800);
+  setTimeout( function () {
+    echo('\n`cd ' +project + '` and `npm install`\n\033[34m–– { Build something awesome! } ––\033[0m');
+  }, 1200);
 }
