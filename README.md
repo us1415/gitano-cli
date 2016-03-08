@@ -28,9 +28,9 @@ Gitano-Cli will prompt:
 * React-starter + Redux + Relay *(not available yet)*
 
 2 - **What CSS framework do you want to use?**
-* Bootstrap
+* [Bootstrap](http://getbootstrap.com/)
+* [Bulma](http://bulma.io/)
 * Foundation *(not available yet)*
-* Bulma *(not available yet)*
 * None
 
 3 - **What testing suite do you want to use?**
