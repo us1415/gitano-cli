@@ -1,6 +1,7 @@
 [x] add no-space validation on name prompt
 [x] react-starter (default w/bootstrap)
 [x] react-starter no-css:branch
+[x] react-starter bulma:branch
 [] react-starter w/foundation:branch
 [] react-starter w/redux:branch
 [] react-starter w/redux & relay:branch

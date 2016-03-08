@@ -50,6 +50,12 @@ function reactBootstrap ( project ) {
   cleanProject( project );
 }
 
+// Clone react-starter Bulma Css
+function reactBulma ( project ) {
+  exec('git clone -b bulma git@github.com:juanmnl/react-starter.git ' + project);
+  cleanProject( project );
+}
+
 // Clone react-starter no-css-framework branch
 function reactNoCss ( project ) {
   exec('git clone -b no-css-framework git@github.com:juanmnl/react-starter.git ' + project);
@@ -65,6 +71,8 @@ function createProject ( answers ) {
   // Add project type & css
   if (answers.Type === 'react-starter' && answers.Css === 'bootstrap') {
     reactBootstrap( project );
+  } else if (answers.Type === 'react-starter' && answers.Css === 'bulma') {
+    reactBulma( project );
   } else if (answers.Type === 'react-starter' && answers.Css === 'none') {
     reactNoCss( project );
   }
@@ -78,6 +86,7 @@ function cleanProject ( project ) {
   echo('\033[34mThe Spirits have spoken!\033[0m');
 }
 
+// Finishing messages
 function finishProject ( answers ) {
   var project = answers.Name;
   echo('\033[32mYour wishes will be granted.\033[0m');

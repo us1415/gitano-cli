@@ -28,7 +28,7 @@ var questions = [
     type: 'list',
     name: 'Css',
     message: 'Do you want a CSS Framework with that?\n',
-    choices: [ 'Bootstrap', 'None' ],
+    choices: [ 'Bootstrap', 'Bulma', 'None' ],
     filter: function( val ) { return val.toLowerCase(); }
   },
   // {
