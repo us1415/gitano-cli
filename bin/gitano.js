@@ -68,16 +68,19 @@ function reactNoCss ( project ) {
 
 // Create the project based on the answers
 function createProject ( answers ) {
+
   var project = answers.Name;
+  var type = answers.Type;
+  var css = answers.Css;
 
   echo(chalk.blue.bgBlack.bold('Invoking the soul of ' + project));
   // Check if `project`folder doesn't exists or break w/ message
   // Add project type & css
-  if (answers.Type === 'react-starter' && answers.Css === 'bootstrap') {
+  if (type === 'react-starter' && css === 'bootstrap') {
     reactBootstrap( project );
-  } else if (answers.Type === 'react-starter' && answers.Css === 'bulma') {
+  } else if (type === 'react-starter' && css === 'bulma') {
     reactBulma( project );
-  } else if (answers.Type === 'react-starter' && answers.Css === 'none') {
+  } else if (type === 'react-starter' && css === 'none') {
     reactNoCss( project );
   }
 }
