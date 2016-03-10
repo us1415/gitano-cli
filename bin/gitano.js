@@ -3,23 +3,27 @@
 
 var shell = require('shelljs');
 var inquirer = require('inquirer');
+var chalk = require('chalk');
 var questions = require('./questions.js');
 
-////* GITANO *////
+/**
+* GITANO
+*/
 
 // Why so many setTimeout(s)? -> Because "Perception" matters
 
 var echo = shell.echo;
 var exec = shell.exec;
 
-echo('\nHello! Me llaman "El Gitano" –¡Olé!-\nI\'ll help you setup your React project.\n');
+echo(chalk.bgBlack.bold('\nHello! Me llaman "El Gitano" –¡Olé!-'));
+echo('I\'ll help you setup your React project.\n');
 // Build a function that checks
 // and downloads updates with this messages as loading state
 setTimeout( function () {
-  echo('\033[34mLook deep into the crystal ball. \033[0m');
+  echo(chalk.blue.bgBlack.bold('Look deep into the crystal ball.'));
 }, 1600);
 setTimeout( function () {
-  echo('\033[34mSummoning the ancient binary Spirits...\033[0m\n');
+  echo(chalk.blue.bgBlack.bold('Summoning the ancient binary Spirits...\n'));
 }, 2400);
 
 
@@ -27,7 +31,7 @@ setTimeout( function () {
   inquirer.prompt( questions, function( answers ) {
 
     setTimeout( function () {
-      echo('\n\033[34mYou have chosen... Wisely. \033[0m');
+      echo(chalk.blue.bgBlack.bold('\nYou have chosen... Wisely.'));
       // add random generated "cheerful" message
     }, 700);
 
@@ -66,7 +70,7 @@ function reactNoCss ( project ) {
 function createProject ( answers ) {
   var project = answers.Name;
 
-  echo('Invoking the soul of ' + project);
+  echo(chalk.blue.bgBlack.bold('Invoking the soul of ' + project));
   // Check if `project`folder doesn't exists or break w/ message
   // Add project type & css
   if (answers.Type === 'react-starter' && answers.Css === 'bootstrap') {
@@ -81,19 +85,20 @@ function createProject ( answers ) {
 // Remove unnecesary files from project
 function cleanProject ( project ) {
   exec('cd ' + project + ' && rm -rf .git TODO previews README.md');
-  echo('\n\033[34mRemoving the Git of past lives...\033[0m');
+  echo(chalk.blue.bgBlack.bold('Removing the Git of past lives...'));
   exec('cd ' + project + ' && git init -q && touch README.md');
-  echo('\033[34mThe Spirits have spoken!\033[0m');
+  echo(chalk.blue.bgBlack.bold('The Spirits have spoken!'));
 }
 
 // Finishing messages
 function finishProject ( answers ) {
   var project = answers.Name;
-  echo('\033[32mYour wishes will be granted.\033[0m');
+  echo(chalk.green.bgBlack.bold('Your wishes have been granted.'));
   setTimeout( function () {
-    echo('\n\033[34mCome back soon! And bring me some fresh blood :D\033[0m');
+    echo(chalk.blue.bgBlack.bold('Come back soon! And bring me some fresh blood :D'));
   }, 800);
   setTimeout( function () {
-    echo('\n`cd ' +project + '` and `npm install`\n\033[34m–– { Build something awesome! } ––\033[0m');
+    echo(chalk.red.bold('\n`cd ' + project + '` and `npm install`\n'));
+    echo(chalk.white.bgBlack.bold('–– { Build something awesome! } ––'))
   }, 1200);
 }
