@@ -15,15 +15,15 @@ var questions = require('./questions.js');
 var echo = shell.echo;
 var exec = shell.exec;
 
-echo(chalk.bgBlack.bold('\nHello! Me llaman "El Gitano" –¡Olé!-'));
+echo(chalk.inverse.bold('\nHello! Me llaman "El Gitano" –¡Olé!-'));
 echo('I\'ll help you setup your React project.\n');
 // Build a function that checks
 // and downloads updates with this messages as loading state
 setTimeout( function () {
-  echo(chalk.blue.bgBlack.bold('Look deep into the crystal ball.'));
+  echo(chalk.inverse.bold('Look deep into the crystal ball.'));
 }, 1600);
 setTimeout( function () {
-  echo(chalk.blue.bgBlack.bold('Summoning the ancient binary Spirits...\n'));
+  echo(chalk.inverse.bold('Summoning the ancient binary Spirits...\n'));
 }, 2400);
 
 
@@ -31,7 +31,7 @@ setTimeout( function () {
   inquirer.prompt( questions, function( answers ) {
 
     setTimeout( function () {
-      echo(chalk.blue.bgBlack.bold('\nYou have chosen... Wisely.'));
+      echo(chalk.inverse.bold('\nYou have chosen... Wisely.'));
       // add random generated "cheerful" message
     }, 700);
 
@@ -73,7 +73,7 @@ function createProject ( answers ) {
   var type = answers.Type;
   var css = answers.Css;
 
-  echo(chalk.blue.bgBlack.bold('Invoking the soul of ' + project));
+  echo(chalk.inverse.bold('Invoking the soul of ' + project));
   // Check if `project`folder doesn't exists or break w/ message
   // Add project type & css
   if (type === 'react-starter' && css === 'bootstrap') {
@@ -88,9 +88,9 @@ function createProject ( answers ) {
 // Remove unnecesary files from project
 function cleanProject ( project ) {
   exec('cd ' + project + ' && rm -rf .git TODO previews README.md');
-  echo(chalk.blue.bgBlack.bold('Removing the Git of past lives...'));
+  echo(chalk.inverse.bold('Removing the Git of past lives...'));
   exec('cd ' + project + ' && git init -q && touch README.md');
-  echo(chalk.blue.bgBlack.bold('The Spirits have spoken!'));
+  echo(chalk.inverse.bold('The Spirits have spoken!'));
 }
 
 // Finishing messages
@@ -98,10 +98,10 @@ function finishProject ( answers ) {
   var project = answers.Name;
   echo(chalk.green.bgBlack.bold('Your wishes have been granted.'));
   setTimeout( function () {
-    echo(chalk.blue.bgBlack.bold('Come back soon! And bring me some fresh blood :D'));
+    echo(chalk.inverse.bold('Come back soon! And bring me some fresh blood :D'));
   }, 800);
   setTimeout( function () {
     echo(chalk.red.bold('\n`cd ' + project + '` and `npm install`\n'));
-    echo(chalk.white.bgBlack.bold('–– { Build something awesome! } ––'))
+    echo(chalk.inverse.bold('–– { Build something awesome! } ––'))
   }, 1200);
 }
